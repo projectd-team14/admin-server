@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['firewall'])->group(function () {
-    // IP制限したいエンドポイントをグループ内に定義する
     Route::get('/', function () {
         return view('welcome');
     });
