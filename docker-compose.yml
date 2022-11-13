@@ -5,8 +5,6 @@ services:
     build: ./src/php
     volumes:
       - ./src/app:/var/www/html
-    depends_on:
-      - db
 
   nginx:
     image: nginx:latest
