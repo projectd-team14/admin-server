@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+  .navigation {
+    position: relative;
+    height: 100%;
+    background: linear-gradient(to bottom, #20c77c 0%, #00acb8 100%);
+    overflow-x: hidden;
+    transition: all 0.5s;
+  }
+  
+  .navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+  }
+  
+  .navigation ul li {
+    list-style: none;
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 15px;
+  }
+  
+  .navigation ul li:hover {
+    background-color: #20272c5e;
+  }
+  
+  .navigation ul li a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: flex;
+  }
+  
+  .navigation ul li a .icon {
+    display: block;
+    min-width: 45px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+  }
+  
+  .navigation ul li a .icon ion-icon {
+    font-size: 1.5em;
+  }
+  
+  .navigation ul li a .title {
+    padding-left: 15px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+  }
+
+  .login{
+    background: linear-gradient(to bottom, #20c77c 0%, #0071b8 100%);
+  }
+  .register{
+    background: linear-gradient(to bottom, #20c77c 0%, #0071b8 100%);
+  }
+  .card-body{
+    background: #ffffff5e;
+  }
+  .btn-link{
+    color: #e65757;
+  }
+  .btn-link:hover{
+    color: #e65757;
+  }
+  .btn-link:active{
+    color: #e65757;
+  }
+  .btn-primary{
+    background: #20c7bf;
+  }
+  .btn-primary:hover{
+    background: #157e78;
+  }
+
+  .card{
+    margin-top: 25px;
+  }

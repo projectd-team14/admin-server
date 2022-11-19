@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>BICYCLE SYSTEM</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,13 +18,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    駐輪場管理システム
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -42,13 +43,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                                 </li>
                             @endif
                         @else
@@ -74,10 +75,53 @@
                 </div>
             </div>
         </nav>
+        @guest
+            @if (Route::has('login'))
+                <main>
+                    @yield('content')
+                </main>
+            @elseif (Route::has('register'))
+                <main>
+                    @yield('content')
+                </main>
+            @endif
+        @else
+        <div class="row" style='height: 100vh; width: 100%'>
+            <div class="col-md-2 p-0">
+                @include('navibar')
+            </div>        
+            @if (Route::is('top'))
+                <div class="col-md-10 p-0">
+                    @include('top')
+                </div>
+            @elseif (Route::is('chart'))
+                <div class="col-md-10 p-0">
+                    @include('chart')
+                </div>                
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+            @elseif (Route::is('map'))
+                <div class="col-md-10 p-0">
+                    @include('map')
+                </div>
+
+            @elseif (Route::is('information'))
+                <div class="col-md-10 p-0">
+                    @include('information')
+                </div>
+
+            @elseif (Route::is('setting'))
+                <div class="col-md-10 p-0">
+                    @include('setting')
+                </div>
+
+            @elseif (Route::is('help'))
+                <div class="col-md-10 p-0">
+                    @include('help')
+                </div>
+
+            @endif
+        @endguest
+        </div>
     </div>
 </body>
 </html>
