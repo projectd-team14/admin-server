@@ -17,7 +17,9 @@ Route::middleware(['firewall'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
+
+    // ホーム
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
