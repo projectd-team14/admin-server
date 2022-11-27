@@ -20,6 +20,8 @@ Route::middleware(['firewall'])->group(function () {
 
     // ホーム
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('/top', [App\Http\Controllers\HomeController::class, 'top'])->name('top');
 });
 Auth::routes();
 

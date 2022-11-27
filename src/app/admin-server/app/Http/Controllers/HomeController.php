@@ -27,4 +27,10 @@ class HomeController extends Controller
         return view('layouts/app', compact('user'));
     }
 
+    public function top()
+    { 
+        $user = \Auth::user();
+        return view('layouts/app', compact('user'));
+    }
+
 }
