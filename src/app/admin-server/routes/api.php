@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Spot\SpotController;
+use App\Http\Controllers\Download\CsvController;
  
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,5 @@ Route::middleware(['firewall'])->group(function () {
     });
 
     Route::get('/spot_admin_get/{id}', [SpotController::class, 'spotAdminGet']);
+    Route::post('/csv_download', [CsvController::class, 'csvDownload']); 
 });

@@ -28,14 +28,14 @@
         </li>
         <li class="list">
           <a href="/setting/{{ $user['id'] }}">
-            <span class="icon"><ion-icon name="bicycle-outline"></ion-icon></span>
+            <span class="icon"><ion-icon name="map-outline"></ion-icon></span>
             <span class="title">設定</span>
           </a>
         </li>
         <li class="list">
           <li class="nav-item dropdown">
-          <a href="/download">
-              <span class="icon"><ion-icon name="map-outline"></ion-icon></span>
+            <a href="/download">
+              <span class="icon"><ion-icon name="bicycle-outline"></ion-icon></span>
               <span class="title">ダウンロード</span>
             </a>
           </li>
