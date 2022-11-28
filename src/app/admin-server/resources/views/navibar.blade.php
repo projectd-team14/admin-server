@@ -34,7 +34,7 @@
         </li>
         <li class="list">
           <li class="nav-item dropdown">
-          <a href="/download/{{ $user['id'] }}">
+          <a href="/download">
               <span class="icon"><ion-icon name="map-outline"></ion-icon></span>
               <span class="title">ダウンロード</span>
             </a>

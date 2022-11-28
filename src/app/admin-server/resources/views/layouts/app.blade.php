@@ -27,7 +27,7 @@
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        駐輪場管理システム
+                        駐輪場管理システム-管理者用
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
@@ -98,9 +98,9 @@
                 <div class="col-md-10 p-0">
                     @include('home')
                 </div>
-            @elseif (Route::is('chart'))
+            @elseif (Route::is('download'))
                 <div class="col-md-10 p-0">
-                    @include('chart')
+                    @include('download')
                 </div>                
 
             @elseif (Route::is('map'))

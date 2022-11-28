@@ -1,6 +1,9 @@
 <?php declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Csv\CsvController;
+use App\Http\Controllers\Download\DownloadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +22,12 @@ Route::middleware(['firewall'])->group(function () {
     });
 
     // ホーム
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-    Route::get('/top', [App\Http\Controllers\HomeController::class, 'top'])->name('top');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // ダッシュボード
+    Route::get('/top', [HomeController::class, 'top'])->name('top');
+    // 検索・ダウンロード
+    Route::get('/download', [DownloadController::class, 'index'])->name('download');
+    Route::post('/create_list', [DownloadController::class, 'createList'])->name('download');
 });
 Auth::routes();
 
