@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Csv\CsvController;
 use App\Http\Controllers\Download\DownloadController;
+use App\Http\Controllers\Chart\ChartController;
+use App\Http\Controllers\Camera\CameraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,13 @@ Route::middleware(['firewall'])->group(function () {
     // 検索・ダウンロード
     Route::get('/download', [DownloadController::class, 'index'])->name('download');
     Route::post('/create_list', [DownloadController::class, 'createList'])->name('download');
+    // 分析データ
+    Route::get('/chart', [ChartController::class, 'index'])->name('chart');
+    // カメラ
+    Route::get('/camera', [cameraController::class, 'index'])->name('camera');
+    Route::post('/create_camera', [CameraController::class, 'createCamera'])->name('camera');
+    // Route::post('/create_chart', [ChartController::class, 'createChart'])->name('chart');
+    // Route::post('/delete_chart', [ChartController::class, 'deleteChart'])->name('chart');
 });
 Auth::routes();
 

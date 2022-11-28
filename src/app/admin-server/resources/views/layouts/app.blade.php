@@ -103,26 +103,14 @@
                     @include('download')
                 </div>                
 
-            @elseif (Route::is('map'))
+            @elseif (Route::is('chart'))
                 <div class="col-md-10 p-0">
-                    @include('map')
+                    @include('chart')
                 </div>
-
-            @elseif (Route::is('information'))
+            @elseif (Route::is('camera'))
                 <div class="col-md-10 p-0">
-                    @include('information')
+                    @include('camera')
                 </div>
-
-            @elseif (Route::is('setting'))
-                <div class="col-md-10 p-0">
-                    @include('setting')
-                </div>
-
-            @elseif (Route::is('help'))
-                <div class="col-md-10 p-0">
-                    @include('help')
-                </div>
-
             @endif
         @endguest
         </div>

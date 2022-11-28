@@ -13,7 +13,7 @@
       <ul>
         <li class="list">
           <li class="nav-item dropdown">
-            <a href="/spot/{{ $user['id'] }}">
+            <a href="/chart">
               <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
               <span class="title">統計</span>
             </a>
@@ -21,15 +21,9 @@
         </li>
         </li>
         <li class="list">
-          <a href="/information/{{ $user['id'] }}">
-            <span class="icon"><ion-icon name="information-circle-outline"></ion-icon></span>
-            <span class="title">申請</span>
-          </a>
-        </li>
-        <li class="list">
-          <a href="/setting/{{ $user['id'] }}">
-            <span class="icon"><ion-icon name="map-outline"></ion-icon></span>
-            <span class="title">設定</span>
+          <a href="/camera">
+          <span class="icon"><ion-icon name="image-outline"></ion-icon></span>
+            <span class="title">カメラ</span>
           </a>
         </li>
         <li class="list">
