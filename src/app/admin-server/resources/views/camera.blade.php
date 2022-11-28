@@ -87,6 +87,7 @@
         </div>
     </div>
 </div>
+@if(isset($camera))
 <div class="container">
     <div id="chart_card" class="row justify-content-center">
     @foreach($camera as $cameras)
@@ -109,3 +110,4 @@
     @endforeach 
     </div>
 </div>
+@endif
