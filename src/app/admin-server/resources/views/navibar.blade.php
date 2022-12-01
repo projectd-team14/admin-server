@@ -12,13 +12,16 @@
     <div class="navigation">
       <ul>
         <li class="list">
-          <li class="nav-item dropdown">
-            <a href="/chart">
-              <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
-              <span class="title">統計</span>
-            </a>
-          </li>
+          <a href="/home">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">ホーム</span>
+          </a>
         </li>
+        <li class="list">
+          <a href="/chart">
+            <span class="icon"><ion-icon name="bar-chart-outline"></ion-icon></span>
+            <span class="title">グラフ</span>
+          </a>
         </li>
         <li class="list">
           <a href="/camera">
@@ -27,12 +30,11 @@
           </a>
         </li>
         <li class="list">
-          <li class="nav-item dropdown">
-            <a href="/download">
-              <span class="icon"><ion-icon name="bicycle-outline"></ion-icon></span>
-              <span class="title">ダウンロード</span>
-            </a>
-          </li>
+          <a href="/download">
+            <span class="icon"><ion-icon name="bicycle-outline"></ion-icon></span>
+            <span class="title">ダウンロード</span>
+          </a>
+        </li>
         <li class="list">
           <a href="/help/{{ $user['id'] }}">
             <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>

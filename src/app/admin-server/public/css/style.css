@@ -6,7 +6,7 @@
   
   body {
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #eeeeee;
   }
   
   .navigation {
@@ -35,10 +35,11 @@
   }
   
   .navigation ul li:hover {
-    background-color: #20272c5e;
+    background-color: #9dabb65e;
   }
-  
+
   .navigation ul li a {
+    margin-left: 5%;
     display: block;
     position: relative;
     text-decoration: none;
