@@ -53,3 +53,38 @@
         </div>
     </nav>
 </div>
+<div class="container">
+    <div id="chart_card" class="row justify-content-center">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-name card-header">放置自転車推移-全国</div> 
+                    <div class="my-3 mx-5">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+<div class="container">
+    <div id="chart_card" class="row justify-content-center">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-name card-header">駐輪場一覧</div> 
+                    <div class="my-3 mx-5">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="col-9">
+            <div class="card">
+                <div class="card-name card-header">駐輪場マップ</div> 
+                    <div class="my-3 mx-5">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
