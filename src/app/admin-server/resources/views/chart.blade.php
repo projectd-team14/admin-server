@@ -111,6 +111,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const createList = [];
+    const adminURL = process.env.ADMIN_URL
 
     function  createChart() {
         var createSpots = document.getElementById("create_spots").value;
@@ -147,7 +148,7 @@
         var xhr = new XMLHttpRequest();
 
         if (createSpots !== '0') {
-            xhr.open('post', "http://localhost:8100/api/create_chart", true);
+            xhr.open('post', "/api/create_chart", true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(json_text);  
         }
