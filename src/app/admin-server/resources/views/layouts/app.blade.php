@@ -90,7 +90,7 @@
                 </main>
             @endif
         @else
-        <div class="row" style='height: 100vh; width: 100%'>
+        <div class="row" style='height: 100vh; width: 103%'>
             <div class="col-md-2 p-0">
                 @include('navibar')
             </div>        
