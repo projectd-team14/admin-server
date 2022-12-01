@@ -111,8 +111,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const createList = [];
-    const adminURL = process.env.ADMIN_URL
-
+    
     function  createChart() {
         var createSpots = document.getElementById("create_spots").value;
         var deleteSpots = document.getElementById("delete_spots").value;
