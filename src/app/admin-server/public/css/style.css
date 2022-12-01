@@ -70,28 +70,43 @@
   .login{
     background: linear-gradient(to bottom, #20c77c 0%, #0071b8 100%);
   }
+  
   .register{
     background: linear-gradient(to bottom, #20c77c 0%, #0071b8 100%);
   }
+
   .card-body{
     background: #ffffff5e;
   }
+
   .btn-link{
     color: #e65757;
   }
+
   .btn-link:hover{
     color: #e65757;
   }
+
   .btn-link:active{
     color: #e65757;
   }
+
   .btn-primary{
     background: #20c7bf;
   }
+
   .btn-primary:hover{
     background: #157e78;
   }
 
   .card{
     margin-top: 25px;
+  }
+
+  .side-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1;
   }

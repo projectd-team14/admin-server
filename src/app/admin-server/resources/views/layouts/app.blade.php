@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="main-view">
     @guest
         @if (Route::has('login') or Route::has('register'))
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -90,10 +90,10 @@
                 </main>
             @endif
         @else
-        <div class="row" style='height: 100vh; width: 103%'>
+        <div class="row" style='height: 100vh; width: 102%'>
             <div class="col-md-2 p-0">
-                @include('navibar')
-            </div>        
+            </div>
+                @include('navibar')    
             @if (Route::is('home'))
                 <div class="col-md-10 p-0">
                     @include('home')

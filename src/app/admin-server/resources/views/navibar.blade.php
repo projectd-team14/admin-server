@@ -9,7 +9,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </head>
   <body>
-    <div class="navigation">
+    <div class="col-md-2 p-0 navigation side-view">
       <ul>
         <li class="list">
           <a href="/home">
