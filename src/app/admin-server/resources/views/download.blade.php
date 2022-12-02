@@ -115,30 +115,32 @@
             </div>
             <div class="card">
             <div class="card-name card-header">検索結果</div>
-                <table id="perfume" class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">自転車ID</th>
-                        <th scope="col">駐輪場</th>
-                        <th scope="col">状態</th>
-                        <th scope="col">登録日時</th>
-                        <th scope="col">更新日時</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if(isset($bicycleList))
-                            @foreach($bicycleList as $bicycleLists)
+                <div class="overflow-auto" style="height: 580px;">
+                    <table id="perfume" class="table">
+                        <thead>
                             <tr>
-                                <td>{{ $bicycleLists['bicycles_id'] }}</td>
-                                <td>{{ $bicycleLists['spots_name'] }}</td>
-                                <td>{{ $bicycleLists['bicycles_status'] }}</td>
-                                <td>{{ $bicycleLists['created_at'] }}</td>
-                                <td>{{ $bicycleLists['updated_at'] }}</td>
+                            <th scope="col">自転車ID</th>
+                            <th scope="col">駐輪場</th>
+                            <th scope="col">状態</th>
+                            <th scope="col">登録日時</th>
+                            <th scope="col">更新日時</th>
                             </tr>
-                            @endforeach 
-                        @endif
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @if(isset($bicycleList))
+                                @foreach($bicycleList as $bicycleLists)
+                                <tr>
+                                    <td>{{ $bicycleLists['bicycles_id'] }}</td>
+                                    <td>{{ $bicycleLists['spots_name'] }}</td>
+                                    <td>{{ $bicycleLists['bicycles_status'] }}</td>
+                                    <td>{{ $bicycleLists['created_at'] }}</td>
+                                    <td>{{ $bicycleLists['updated_at'] }}</td>
+                                </tr>
+                                @endforeach 
+                            @endif
+                        </tbody>
+                    </table>            
+                </div>
             </div>
         </div>
     </div>
