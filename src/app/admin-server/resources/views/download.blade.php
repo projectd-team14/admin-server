@@ -90,7 +90,7 @@
                                     </select>                        
                                 </div>
                                 <div class="col-8">
-                                    <div>▼期間</div>
+                                    <div>▼期間（必須）</div>
                                     <div class="row">
                                         <div class="col-3">
                                             <input class="form-control" type="date" name="created_at" />
