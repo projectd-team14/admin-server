@@ -27,7 +27,11 @@ class DownloadController extends Controller
         $bicycleList = [];
 
         if ($data['spots_id'] === "0") {
-            $spotList = Spot::where('spots_status', $data['spots_status'])->get();  
+            if ($data['spots_status'] === "3") {
+                $spotList = Spot::get();
+            } else {
+                $spotList = Spot::where('spots_status', $data['spots_status'])->get();
+            }
         } else {
             $spotList = Spot::where('spots_id', $data['spots_id'])->where('spots_status', $data['spots_status'])->get();   
         }
