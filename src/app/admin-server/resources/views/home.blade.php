@@ -77,7 +77,7 @@
                     <thead>
                         <tr>
                         <th class="text-center" scope="col">駐輪場名</th>
-                        <th class="text-center" scope="col">OFF-ON</th>
+                        <th class="text-center" scope="col">非表示/表示</th>
                         </tr>
                     </thead>
                     @php

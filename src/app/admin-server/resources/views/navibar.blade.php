@@ -42,6 +42,14 @@
           </a>
         </li>
       </ul>
+      <div style="height: 85%;">
+      </div>
+      <div class="text-center">
+          <a class="my-5 mx-5 btn btn-primary btn-lg rounded-pill" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('ログアウト') }}</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+          </form>
+      </div>
     </div>
   </body>
 </html>
