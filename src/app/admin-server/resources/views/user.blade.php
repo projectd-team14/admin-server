@@ -81,12 +81,12 @@
                                 </div>
                                 <div class="col-3">
                                     <div class="row">
-                                        <div class="col-3">
+                                        <div class="col-4">
                                             <button type="submit" class="btn btn-primary" formaction="/create_user">
-                                                {{ '検索' }}
+                                                {{ '　検索　' }}
                                             </button>                                     
                                         </div>
-                                        <div class="col-9">
+                                        <div class="col-8">
                                             <a href="javascript:void(0)" class="btn btn-primary" onclick="csvDownload()" id="csv_download">{{ 'CSV出力' }}</a>
                                         </div>                                    
                                     </div>

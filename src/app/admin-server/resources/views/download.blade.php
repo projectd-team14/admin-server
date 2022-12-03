@@ -58,7 +58,7 @@
         <div class="col-md-14">
             <div class="card">
                 <div class="card-name card-header">駐輪場 - CSV</div>
-                <div class="col-12 my-3 mx-5">
+                <div class="my-3 mx-5">
                     <form method="POST" action="?">
                     @csrf
                         <div class="form-group row">
@@ -81,6 +81,10 @@
                                             <option value="1">放置車両</option>
                                         </select>                                                
                                 </div>
+                                <div class="col-2">
+                                <div>　</div>
+                                    <a href="javascript:void(0)" class="btn btn-primary" onclick="csvDownload()" id="csv_download">{{ 'CSV出力' }}</a>                                                   
+                                </div>    
                             </div>
                             <div class="row">
                                 <div class="col-4">
@@ -91,25 +95,20 @@
                                         <option value="2">バイク</option>
                                     </select>                        
                                 </div>
-                                <div class="col-8">
-                                    <div>▼期間（必須）</div>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <input class="form-control" type="date" name="created_at" />
-                                        </div>
-                                        <div class="col-3">
-                                            <input class="form-control" type="date" name="updated_at" />
-                                        </div> 
-                                        <div class="col-2">
-                                            <button type="submit" class="btn btn-primary" formaction="/create_list">
-                                                {{ '　検索　' }}
-                                            </button>
-                                        </div>
-                                        <div class="col-2">
-                                        <a href="javascript:void(0)" class="btn btn-primary" onclick="csvDownload()" id="csv_download">{{ 'CSV出力' }}</a>
-                                        </div>
-                                    </div>
-                                </div>                  
+                                <div class="col-2">
+                                    <div>▼登録日（必須）</div>
+                                    <input class="form-control" type="date" name="created_at" />
+                                </div> 
+                                <div class="col-2">
+                                    <div>▼更新日（必須）</div>
+                                    <input class="form-control" type="date" name="updated_at" />
+                                </div> 
+                                <div class="col-2">
+                                <div>　</div>
+                                    <button type="submit" class="btn btn-primary" formaction="/create_list">
+                                        {{ '　検索　' }}
+                                    </button>                                                       
+                                </div>      
                             </div>
                         </div>
                     </form>

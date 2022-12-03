@@ -58,7 +58,7 @@
         <div class="col-md-14">
             <div class="card">
                 <div class="card-name card-header">カメラ - 検索</div>
-                <div class="col-12 my-3 mx-5">
+                <div class="my-3 mx-5">
                 <form method="POST" action="?">
                     @csrf
                     <div class="row justify-content-center">
