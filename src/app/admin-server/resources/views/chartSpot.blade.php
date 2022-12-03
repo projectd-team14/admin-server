@@ -70,9 +70,11 @@
                             <div class="col-3">
                                 <select id="create_spots" class="form-control" name="create_spots">
                                 <option value="0">選択無し</option>
-                                    @foreach($spot as $spots)
-                                        <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
-                                    @endforeach 
+                                    @if(isset($spot))
+                                        @foreach($spot as $spots)
+                                            <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
+                                        @endforeach                                 
+                                    @endif
                                 </select>                        
                             </div>
                             <div class="col-9">
@@ -151,7 +153,7 @@
 
         if (createSpots !== '0') {
             console.log(createSpots)
-            xhr.open('get', "http://host.docker.internal:8000/api/get_spot/" + createSpots, true);
+            xhr.open('get', "{{ env('LARAVEL_URL') }}/api/get_spot/" + createSpots, true);
             xhr.responseType = 'json';
         }
 

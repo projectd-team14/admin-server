@@ -71,9 +71,11 @@
                             <div class="col-3">
                             <select id="create_spots" class="form-control" name="spots_id">
                                 <option value="0">選択無し</option>
-                                @foreach($spot as $spots)
-                                    <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
-                                @endforeach 
+                                    @if(isset($spot))
+                                        @foreach($spot as $spots)
+                                            <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
+                                        @endforeach                                 
+                                    @endif
                             </select>   
                             </div>
                             <div class="col-9">

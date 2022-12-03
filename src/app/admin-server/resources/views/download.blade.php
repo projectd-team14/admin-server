@@ -67,9 +67,11 @@
                                         <div>▼駐輪場</div>
                                         <select class="form-control" name="spots_id">
                                             <option value="0">全て</option>
-                                            @foreach($spot as $spots)
-                                            <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
-                                            @endforeach 
+                                                @if(isset($spot))
+                                                    @foreach($spot as $spots)
+                                                        <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
+                                                    @endforeach                                                 
+                                                @endif
                                         </select>                                                  
                                 </div>                        
                                 <div class="col-4">

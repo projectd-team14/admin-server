@@ -39,6 +39,7 @@ Route::middleware(['firewall'])->group(function () {
     Route::post('/create_camera', [CameraController::class, 'createCamera'])->name('camera');
     // ユーザー
     Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::post('/create_user', [UserController::class, 'createUser'])->name('user');
     // Route::post('/create_chart', [ChartController::class, 'createChart'])->name('chart');
     // Route::post('/delete_chart', [ChartController::class, 'deleteChart'])->name('chart');
 });
