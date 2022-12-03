@@ -47,23 +47,13 @@
     width: 100%;
     display: flex;
   }
-  
-  .navigation ul li a .icon {
-    display: block;
-    min-width: 45px;
-    height: 60px;
-    line-height: 70px;
-    text-align: center;
-  }
-  
-  .navigation ul li a .icon ion-icon {
+
+  .icon ion-icon {
     font-size: 1.5em;
   }
   
-  .navigation ul li a .title {
+  .title {
     padding-left: 15px;
-    height: 60px;
-    line-height: 60px;
     white-space: nowrap;
   }
 
@@ -110,3 +100,24 @@
     height: 100vh;
     z-index: 1;
   }
+
+/* accordion */
+.navbar {
+  background: #003441;
+}
+
+.navbar button:hover {
+  background: #9dabb65e;
+}
+
+.navbar button:checked {
+  background: #9dabb65e;
+}
+
+.sub:hover {
+  background: #9dabb65e;
+}
+
+a {
+  text-decoration: none;
+}
