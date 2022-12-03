@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                駐輪場管理システム-グラフ
+                駐輪場管理システム-グラフ - 条件検索
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
     <div class="row justify-content-center">
         <div class="col-md-14">
             <div class="card">
-                <div class="card-name card-header">分析データ-グラフ</div>
+                <div class="card-name card-header">分析データ - グラフ - 条件検索</div>
                 <div class="col-12 my-3 mx-5">
                     @csrf
                     <div class="row justify-content-center">

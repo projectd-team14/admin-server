@@ -94,7 +94,7 @@
                 <div class="card-name card-header">
                     <div class="row">
                         <div class="col-10">
-                            時間別-混雑状況
+                            時間別 - 混雑状況
                         </div>    
                             <div class="col-2">
                                 <form>
@@ -121,7 +121,7 @@
     <div id="chart_card" class="row justify-content-center">
         <div class="col-12">
             <div class="card">
-                <div class="card-name card-header">時間別-混雑状況</div> 
+                <div class="card-name card-header">時間別 - 混雑状況</div> 
                     <div class="my-3 mx-5" style="height: 250px;">
                     <canvas id="bar_chart" style="max-height: 250px;"></canvas>
                     <div class="row">
