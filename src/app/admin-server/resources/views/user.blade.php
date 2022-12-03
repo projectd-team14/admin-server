@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                駐輪場管理システム - ユーザー - 駐輪場管理団体
+                駐輪場管理システム - 管理団体 - CSV
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -79,10 +79,17 @@
                                         @endif
                                     </select>                        
                                 </div>
-                                <div class="col-9">
-                                    <button type="submit" class="btn btn-primary" formaction="/create_user">
-                                        {{ '　検索　' }}
-                                    </button>             
+                                <div class="col-3">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button type="submit" class="btn btn-primary" formaction="/create_user">
+                                                {{ '検索' }}
+                                            </button>                                     
+                                        </div>
+                                        <div class="col-9">
+                                            <a href="javascript:void(0)" class="btn btn-primary" onclick="csvDownload()" id="csv_download">{{ 'CSV出力' }}</a>
+                                        </div>                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>                    
@@ -97,24 +104,28 @@
         <div class="col-md-14">
         <div class="card">
             <div class="card-name card-header">検索結果</div>
-                <div class="overflow-auto" style="height: 580px;">
+                <div class="overflow-auto" style="height: 640px;">
                     <table id="perfume" class="table">
                         <thead>
                             <tr>
                             <th scope="col">管理者ID</th>
+                            <th scope="col">管理者名（団体）</th>
+                            <th scope="col">連絡先</th>
                             <th scope="col">管理中の駐輪場</th>
                             <th scope="col">登録日時</th>
                             <th scope="col">更新日時</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if(isset($bicycleList))
-                                @foreach($bicycleList as $bicycleLists)
+                            @if(isset($usersList))
+                                @foreach($usersList as $usersLists)
                                 <tr>
-                                    <td>{{ $bicycleLists['bicycles_id'] }}</td>
-                                    <td>{{ $bicycleLists['spots_name'] }}</td>
-                                    <td>{{ $bicycleLists['created_at'] }}</td>
-                                    <td>{{ $bicycleLists['updated_at'] }}</td>
+                                    <td>{{ $usersLists['users_id'] }}</td>
+                                    <td>{{ $usersLists['users_name'] }}</td>
+                                    <td>{{ $usersLists['users_email'] }}</td>
+                                    <td>{{ $usersLists['spots_name'] }}</td>
+                                    <td>{{ $usersLists['created_at'] }}</td>
+                                    <td>{{ $usersLists['updated_at'] }}</td>
                                 </tr>
                                 @endforeach 
                             @endif
