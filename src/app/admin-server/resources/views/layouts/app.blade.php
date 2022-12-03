@@ -108,6 +108,10 @@
                 <div class="col-md-10 p-0">
                     @include('chart')
                 </div>
+            @elseif (Route::is('chart_spot'))
+                <div class="col-md-10 p-0">
+                    @include('chartSpot')
+                </div>
             @elseif (Route::is('camera'))
                 <div class="col-md-10 p-0">
                     @include('camera')

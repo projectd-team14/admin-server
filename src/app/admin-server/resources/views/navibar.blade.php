@@ -50,7 +50,7 @@
               </a>
             </div>
             <div class="accordion-body sub">
-              <a href="/chart">
+              <a href="/chart_spot">
                 <div class="text-white">  
                   ・駐輪場分析
                 </div>  

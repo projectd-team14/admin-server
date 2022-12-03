@@ -32,6 +32,7 @@ Route::middleware(['firewall'])->group(function () {
     Route::post('/create_list', [DownloadController::class, 'createList'])->name('download');
     // 分析データ
     Route::get('/chart', [ChartController::class, 'index'])->name('chart');
+    Route::get('/chart_spot', [ChartController::class, 'chartSpot'])->name('chart_spot');
     // カメラ
     Route::get('/camera', [cameraController::class, 'index'])->name('camera');
     Route::post('/create_camera', [CameraController::class, 'createCamera'])->name('camera');

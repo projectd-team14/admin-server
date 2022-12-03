@@ -58,28 +58,30 @@
         <div class="col-md-14">
             <div class="card">
                 <div class="card-name card-header">カメラ検索</div>
-                <div class="col-12 my-3">
+                <div class="col-12 my-3 mx-5">
                 <form method="POST" action="?">
                     @csrf
                     <div class="row justify-content-center">
-                        <div class="col-6">
-                        <div>▼駐輪場</div>
-                            <div class="row">
-                                <div class="col-4">
-                                <select id="create_spots" class="form-control" name="spots_id">
-                                    <option value="0">選択無し</option>
-                                    @foreach($spot as $spots)
-                                        <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
-                                    @endforeach 
-                                </select>   
-                                </div>
-                                <div class="col-4">
-                                    <button type="submit" class="btn btn-primary" formaction="/create_camera">
-                                        {{ 'カメラ接続' }}
-                                    </button>
-                                </div>
-                            </div>                
+                        <div class="row">
+                            <div class="col-12">
+                                <div>▼駐輪場（選択でグラフを生成）</div>
+                            </div>                     
                         </div>
+                        <div class="row">
+                            <div class="col-3">
+                            <select id="create_spots" class="form-control" name="spots_id">
+                                <option value="0">選択無し</option>
+                                @foreach($spot as $spots)
+                                    <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
+                                @endforeach 
+                            </select>   
+                            </div>
+                            <div class="col-9">
+                                <button type="submit" class="btn btn-primary" formaction="/create_camera">
+                                    {{ 'カメラ接続' }}
+                                </button>
+                            </div>
+                        </div>                
                     </div>                    
                 </form>
                 </div>

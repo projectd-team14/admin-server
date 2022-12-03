@@ -67,4 +67,12 @@ class ChartController extends Controller
 
         return $dataAll;
     }
+
+    public function chartSpot()
+    { 
+        $user = \Auth::user();
+        $spot = Spot::get(['spots_id', 'spots_name']);
+
+        return view('layouts/app', compact('user', 'spot'));
+    }
 }

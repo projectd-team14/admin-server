@@ -57,46 +57,29 @@
     <div class="row justify-content-center">
         <div class="col-md-14">
             <div class="card">
-                <div class="card-name card-header">分析データ-グラフ</div>
+                <div class="card-name card-header">分析データ</div>
                 <div class="col-12 my-3 mx-5">
                     @csrf
                     <div class="row justify-content-center">
-                        <div class="col-3">
-                            <div>▼駐輪場（選択でグラフを生成）</div>
-                            <select id="create_spots" class="form-control" name="create_spots">
-                            <option value="0">選択無し</option>
-                                @foreach($spot as $spots)
-                                    <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
-                                @endforeach 
-                            </select>                        
+                        <div class="row">
+                            <div class="col-12">
+                                <div>▼駐輪場（選択でグラフを生成）</div>
+                            </div>                     
                         </div>
-                        <div class="col-3">
-                        <div>▼表示中（選択でグラフを削除）</div>
-                            <select id="delete_spots" class="form-control" name="delete_spots">
-                            <option value="0">選択無し</option>
-                                @foreach($spot as $spots)
-                                    <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
-                                @endforeach 
-                            </select>                        
-                        </div>
-                        <div class="col-6">
-                            <div>▼グラフ種類</div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <select id="spots_chart_type" class="form-control" name="spots_chart_type">
-                                        <option value="0">放置自転車</option>
-                                        <option value="1">１日</option>
-                                        <option value="2">7日</option>
-                                        <option value="3">30日</option>
-                                        <option value="4">90日</option>
-                                    </select>   
-                                </div>
-                                <div class="col-4">
-                                    <button type="submit" class="btn btn-primary" onclick="createChart()">
-                                        {{ 'グラフ出力' }}
-                                    </button>
-                                </div>
-                            </div>                
+                        <div class="row">
+                            <div class="col-3">
+                                <select id="create_spots" class="form-control" name="create_spots">
+                                <option value="0">選択無し</option>
+                                    @foreach($spot as $spots)
+                                        <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
+                                    @endforeach 
+                                </select>                        
+                            </div>
+                            <div class="col-9">
+                                <button type="submit" class="btn btn-primary" onclick="createChart()">
+                                    {{ 'グラフ出力' }}
+                                </button>             
+                            </div>
                         </div>
                     </div>
                 </div>
