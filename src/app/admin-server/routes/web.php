@@ -6,6 +6,7 @@ use App\Http\Controllers\Csv\CsvController;
 use App\Http\Controllers\Download\DownloadController;
 use App\Http\Controllers\Chart\ChartController;
 use App\Http\Controllers\Camera\CameraController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ Route::middleware(['firewall'])->group(function () {
     // カメラ
     Route::get('/camera', [cameraController::class, 'index'])->name('camera');
     Route::post('/create_camera', [CameraController::class, 'createCamera'])->name('camera');
+    // ユーザー
+    Route::get('/user', [UserController::class, 'index'])->name('user');
     // Route::post('/create_chart', [ChartController::class, 'createChart'])->name('chart');
     // Route::post('/delete_chart', [ChartController::class, 'deleteChart'])->name('chart');
 });

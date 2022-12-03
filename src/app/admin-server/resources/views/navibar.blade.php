@@ -108,7 +108,7 @@
           </h2>
           <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body sub">
-              <a href="/download">
+              <a href="/user">
                 <div class="text-white">  
                   ・駐輪場管理団体
                 </div>  

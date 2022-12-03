@@ -57,7 +57,7 @@
     <div class="row justify-content-center">
         <div class="col-md-14">
             <div class="card">
-                <div class="card-name card-header">分析データ - グラフ - 条件検索</div>
+                <div class="card-name card-header">分析データ - グラフ - 検索</div>
                 <div class="col-12 my-3 mx-5">
                     @csrf
                     <div class="row justify-content-center">

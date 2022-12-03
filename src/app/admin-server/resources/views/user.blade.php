@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                駐輪場管理システム - カメラ - 条件検索
+                駐輪場管理システム - ユーザー - 駐輪場管理団体
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -57,9 +57,8 @@
     <div class="row justify-content-center">
         <div class="col-md-14">
             <div class="card">
-                <div class="card-name card-header">カメラ - 検索</div>
+                <div class="card-name card-header">駐輪場管理者 - 検索</div>
                 <div class="col-12 my-3 mx-5">
-                <form method="POST" action="?">
                     @csrf
                     <div class="row justify-content-center">
                         <div class="row">
@@ -69,47 +68,35 @@
                         </div>
                         <div class="row">
                             <div class="col-3">
-                            <select id="create_spots" class="form-control" name="spots_id">
+                                <select id="create_spots" class="form-control" name="create_spots">
                                 <option value="0">選択無し</option>
-                                @foreach($spot as $spots)
-                                    <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
-                                @endforeach 
-                            </select>   
+                                    @foreach($spot as $spots)
+                                        <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
+                                    @endforeach 
+                                </select>                        
                             </div>
                             <div class="col-9">
-                                <button type="submit" class="btn btn-primary" formaction="/create_camera">
-                                    {{ 'カメラ接続' }}
-                                </button>
+                                <button type="submit" class="btn btn-primary" onclick="onClickChartButton()">
+                                    {{ 'グラフ出力' }}
+                                </button>             
                             </div>
-                        </div>                
-                    </div>                    
-                </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@if(isset($camera))
 <div class="container">
     <div id="chart_card" class="row justify-content-center">
-    @foreach($camera as $cameras)
-    @php
-        $urlReplace = str_replace('watch?v=', 'embed/', $cameras['cameras_url']);
-    @endphp
-        <div class="col-6">
+        <div class="col-12">
             <div class="card">
-                <div class="card-name card-header">{{ $spotName[0]['spots_name'] }}（{{ $cameras['cameras_name'] }}）</div> 
-                    <div class="my-3 mx-5">
+                <div class="card-name card-header">検索結果</div> 
+                    <div class="my-3 mx-5" style="height: 600px;">
                     <div class="row">
-                        <iframe width="100%" height="315"
-                         src="{{ $urlReplace }}"
-                         title="YouTube video player" frameborder="0" 
-                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
-        </div>    
-    @endforeach 
+        </div>  
     </div>
 </div>
-@endif

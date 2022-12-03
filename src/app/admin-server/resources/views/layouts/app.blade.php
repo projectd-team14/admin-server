@@ -116,6 +116,10 @@
                 <div class="col-md-10 p-0">
                     @include('camera')
                 </div>
+            @elseif (Route::is('user'))
+                <div class="col-md-10 p-0">
+                    @include('user')
+                </div>
             @endif
         @endguest
         </div>
