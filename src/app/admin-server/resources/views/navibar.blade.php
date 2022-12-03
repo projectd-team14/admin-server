@@ -79,21 +79,21 @@
           <h2 class="accordion-header navbar" id="flush-headingFour">
             <button class="accordion-button collapsed navbar text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
             <span class="icon"><ion-icon name="bicycle-outline"></ion-icon></span>
-            <span class="title">ダウンロード</span>
+            <span class="title">駐輪場</span>
             </button>
           </h2>
           <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body sub">
               <a href="/download">
                 <div class="text-white">  
-                  ・駐輪場-条件検索-CSV
+                  ・駐輪場 - 条件検索 - CSV
                 </div>  
               </a>
             </div>
             <div class="accordion-body sub">
-              <a href="/download">
+              <a href="/chart">
                 <div class="text-white">  
-                  ・グラフ-条件検索-JPG
+                  ・グラフ - 条件検索 - JPG
                 </div>  
               </a>
             </div>
@@ -103,14 +103,14 @@
           <h2 class="accordion-header navbar" id="flush-headingFive">
             <button class="accordion-button collapsed navbar text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
             <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-            <span class="title">ユーザー</span>
+            <span class="title">管理団体</span>
             </button>
           </h2>
           <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body sub">
               <a href="/user">
                 <div class="text-white">  
-                  ・駐輪場管理団体
+                  ・駐輪場管理団体 - 条件検索 - CSV
                 </div>  
               </a>
             </div>

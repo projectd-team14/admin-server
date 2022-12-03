@@ -63,21 +63,22 @@
                     <div class="row justify-content-center">
                         <div class="row">
                             <div class="col-12">
-                                <div>▼駐輪場（選択でグラフを生成）</div>
+                                <div>▼駐輪場</div>
                             </div>                     
                         </div>
                         <div class="row">
                             <div class="col-3">
                                 <select id="create_spots" class="form-control" name="create_spots">
-                                <option value="0">選択無し</option>
+                                <option value="">選択無し</option>
+                                <option value="0">全て</option>
                                     @foreach($spot as $spots)
                                         <option value="{{ $spots['spots_id'] }}">{{ $spots['spots_name'] }}</option>
                                     @endforeach 
                                 </select>                        
                             </div>
                             <div class="col-9">
-                                <button type="submit" class="btn btn-primary" onclick="onClickChartButton()">
-                                    {{ 'グラフ出力' }}
+                                <button type="submit" class="btn btn-primary" formaction="/create_list">
+                                    {{ '　検索　' }}
                                 </button>             
                             </div>
                         </div>
