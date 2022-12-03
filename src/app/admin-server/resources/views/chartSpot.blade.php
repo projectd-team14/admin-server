@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                駐輪場管理システム-グラフ
+                駐輪場管理システム - グラフ - 駐輪場分析
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -76,7 +76,7 @@
                                 </select>                        
                             </div>
                             <div class="col-9">
-                                <button type="submit" class="btn btn-primary" onclick="createChart()">
+                                <button type="submit" class="btn btn-primary" onclick="onClickChartButton()">
                                     {{ 'グラフ出力' }}
                                 </button>             
                             </div>
@@ -89,89 +89,147 @@
 </div>
 <div class="container">
     <div id="chart_card" class="row justify-content-center">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-name card-header">
+                    <div class="row">
+                        <div class="col-10">
+                            時間別-混雑状況
+                        </div>    
+                            <div class="col-2">
+                                <form>
+                                    <select id="change_chart" class="form-control" name="create_spots" onChange="changeChart()">
+                                        <option value="0">１日間</option>
+                                        <option value="1">１週間</option>
+                                        <option value="2">1ヶ月間</option>
+                                        <option value="3">3ヶ月間</option>
+                                    </select>                                    
+                                </form>
+                            </div>
+                        </div>                         
+                    </div>
+                    <div class="my-3 mx-5" style="height: 250px;">
+                    <canvas id="line_chart" style="max-height: 250px;"></canvas>
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+<div class="container">
+    <div id="chart_card" class="row justify-content-center">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-name card-header">時間別-混雑状況</div> 
+                    <div class="my-3 mx-5" style="height: 250px;">
+                    <canvas id="bar_chart" style="max-height: 250px;"></canvas>
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+        </div>  
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const createList = [];
+    var update = true;
+    var lineCtx;
+    var lineData
+    var lineOptions;
+    var lineChart;
+    var barCtx;
+    var barData;
+    var barOptions;
+    var barChart;
+    var jsonObj;
 
-    function  createChart() {
+    function  onClickChartButton() {
         var createSpots = document.getElementById("create_spots").value;
-        var deleteSpots = document.getElementById("delete_spots").value;
-        var spotsChartType = document.getElementById("spots_chart_type").value;
-
-        var type = '';
-        var color = '';
-
-        if (spotsChartType == '0') {
-            type = '（放置自転車）'
-            color = 'rgba(255, 100, 100, 1)';
-        } else if (spotsChartType === '1') {
-            type = '（１日間）'
-            color = 'rgba(100, 255, 100, 1)';
-        } else if (spotsChartType === '2') {
-            type = '（７日間）'
-            color = 'rgba(100, 100, 255, 1)';
-        } else if (spotsChartType === '3') {
-            type = '（1ヶ月間）'
-            color = 'rgba(200, 200, 100, 1)';
-        } else if (spotsChartType === '4') {
-            type = '（3ヶ月間）'
-            color = 'rgba(100, 200, 200, 1)';
-        }
-
-        const data = {
-            "create_spots" : createSpots,
-            "delete_spots" : deleteSpots,
-            "spots_chart_type" : spotsChartType
-        }
-
-        var json_text = JSON.stringify(data);
         var xhr = new XMLHttpRequest();
 
         if (createSpots !== '0') {
-            xhr.open('post', "/api/create_chart", true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.send(json_text);  
+            console.log(createSpots)
+            xhr.open('get', "http://host.docker.internal:8000/api/get_spot/" + createSpots, true);
+            xhr.responseType = 'json';
         }
 
-        if (deleteSpots !== '0') {
-            var list_element = document.getElementById(deleteSpots);
-            list_element.remove();
-        }
-
-        xhr.onerror = function(){
+        xhr.onerror = function() {
             alert("error!");
         }
 
-        xhr.onload = function(){
-            const jsonObj = JSON.parse(xhr.responseText);
-            console.log(jsonObj['spots_data']);
+        xhr.onload = function() {
+            jsonObj = this.response;
 
-            var listCode = '<div id='+ createSpots + ' class="col-6">' + '<div class="card">' + 
-            '<div class="card-name card-header">' + jsonObj['spots_name'] + type + '</div>' + 
-            '<div class="my-3 mx-5">' + '<div class="row">' + '<canvas id="ex_chart" class="w-100">' + '</canvas>' + 
-            '</div>' + '</div>' + '</div>' + '</div>';
-            var contentBlock = document.getElementById('chart_card');
-            contentBlock.insertAdjacentHTML('afterbegin', listCode);
-
-            // グラフ生成
-            var ctx = document.getElementById('ex_chart').getContext('2d');
-            ctx.canvas.height = 300;
-            var data = {
-                labels: jsonObj['labels'],
+            lineData = {
+                labels: jsonObj['situationChartData'][0]['labels'],
                 datasets: [{
-                    label: jsonObj['spots_name'],
-                    data: jsonObj['spots_data'],
-                    borderColor: color
+                    label: jsonObj['situationChartData'][0]['label'],
+                    data: jsonObj['situationChartData'][0]['data'],
+                    borderColor: jsonObj['situationChartData'][0]['backgroundColor']
                 }]
             };
-            var options = {};
-            var ex_chart = new Chart(ctx, {
-                type: 'line',
-                data: data,
-                options: options
-            });
+            lineOptions = {};
+
+            barData = {
+                labels: ["0","1","2","3","4","5","6","7","8","9","10","10~"],
+                datasets: [{
+                    label: jsonObj['numberChartData'][0]['label'],
+                    data: jsonObj['numberChartData'][0]['data'],
+                    backgroundColor: jsonObj['numberChartData'][0]['backgroundColor']
+                }]
+            };
+
+            barOptions = {
+                indexAxis: 'y'
+            };
+
+            if (update) {
+                update = false;
+                lineCtx = document.getElementById('line_chart').getContext('2d');
+                lineCtx.canvas.height = 300;
+                barCtx = document.getElementById('bar_chart').getContext('2d');
+                barCtx.canvas.height = 300;            
+                createChart(); 
+            } else {        
+                lineChart.destroy();
+                barChart.destroy();
+                createChart();   
+            }
         };
+
+        xhr.send();
+    }
+
+    function createChart() {
+        lineChart = new Chart(lineCtx, {
+            type: 'line',
+            data: lineData,
+            options: lineOptions
+        });
+
+        barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: barData,
+            options: barOptions
+        });     
+    }
+
+    function changeChart() {
+        var changeChart = document.getElementById("change_chart").value;
+
+        lineData = {
+            labels: jsonObj['situationChartData'][changeChart]['labels'],
+            datasets: [{
+                label: jsonObj['situationChartData'][changeChart]['label'],
+                data: jsonObj['situationChartData'][changeChart]['data'],
+                borderColor: jsonObj['situationChartData'][changeChart]['backgroundColor']
+            }]
+        };
+
+        lineChart.destroy();
+        barChart.destroy();
+        createChart();
     }
 </script>
