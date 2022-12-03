@@ -77,7 +77,7 @@
                                 </select>                        
                             </div>
                             <div class="col-9">
-                                <button type="submit" class="btn btn-primary" formaction="/create_list">
+                                <button type="submit" class="btn btn-primary" formaction="/create_user_list">
                                     {{ '　検索　' }}
                                 </button>             
                             </div>
@@ -89,15 +89,65 @@
     </div>
 </div>
 <div class="container">
-    <div id="chart_card" class="row justify-content-center">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-name card-header">検索結果</div> 
-                    <div class="my-3 mx-5" style="height: 600px;">
-                    <div class="row">
-                    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-14">
+        <div class="card">
+            <div class="card-name card-header">検索結果</div>
+                <div class="overflow-auto" style="height: 580px;">
+                    <table id="perfume" class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">管理者ID</th>
+                            <th scope="col">管理中の駐輪場</th>
+                            <th scope="col">登録日時</th>
+                            <th scope="col">更新日時</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(isset($bicycleList))
+                                @foreach($bicycleList as $bicycleLists)
+                                <tr>
+                                    <td>{{ $bicycleLists['bicycles_id'] }}</td>
+                                    <td>{{ $bicycleLists['spots_name'] }}</td>
+                                    <td>{{ $bicycleLists['created_at'] }}</td>
+                                    <td>{{ $bicycleLists['updated_at'] }}</td>
+                                </tr>
+                                @endforeach 
+                            @endif
+                        </tbody>
+                    </table>            
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
 </div>
+<script>
+    const csvDownload = () => {
+      const table = document.getElementById('perfume')
+      const escaped = /,|\r?\n|\r|"/;
+      const e = /"/g;
+      const bom = new Uint8Array([0xEF, 0xBB, 0xBF])
+      const csv = []
+      const row = []
+
+      for (let r = 0; r < table.rows.length; r++) {
+        row.length = 0
+        for (let c = 0; c < table.rows[r].cells.length; c++) {
+          const field = table.rows[r].cells[c].textContent
+          row.push(escaped.test(field) ? '"' + field.replace(e, '""') + '"' : field)
+        }
+        csv.push(row.join(','))
+      }
+
+      const blob = new Blob([bom, csv.join('\n')], {
+        'type': 'text/csv'
+      })
+
+      const a = document.getElementById('csv_download')
+
+      a.download = 'bicycle_data.csv'
+
+      a.href = window.URL.createObjectURL(blob)
+
+    }
+  </script>

@@ -113,7 +113,13 @@
                     </form>
                 </div>
             </div>
-            <div class="card">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-14">
+        <div class="card">
             <div class="card-name card-header">検索結果</div>
                 <div class="overflow-auto" style="height: 580px;">
                     <table id="perfume" class="table">
@@ -145,7 +151,6 @@
         </div>
     </div>
 </div>
-</script>
 <script>
     const csvDownload = () => {
       const table = document.getElementById('perfume')
