@@ -86,7 +86,11 @@
                         @if(isset($spot))
                             @foreach($spot as $spots)
                             <tr>
-                                <td class="text-center">{{ $spots['spots_name'] }}</td>
+                                <td class="text-center">
+                                    <button style="border: none; background: transparent;" onclick="onClickSpotGis({{ $count }})">
+                                        {{ $spots['spots_name'] }}
+                                    </button>    
+                                </td>
                                 <td class="text-center">
                                     <div class="form-switch">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" value="{{ $spots['spots_id'] }}" onclick="onClickSpotChart({{ $count }})"> 
@@ -128,6 +132,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    var markers = [];
+
     const labels = @json($data['labels']);
     const countMonthAll = @json($data['month_list']);
     const countViolationAll = @json($data['violation_list']);
@@ -216,12 +222,15 @@
     tileLayer.addTo(map);
 
     for (i = 0; i < spotData.length; i++) {
-        var marker = L.marker([spotData[i]['spots_latitude'], spotData[i]['spots_longitude']]).addTo(map);
         var urlReplace =  spotData[i]['spots_url'].replace('watch?v=', 'embed/');
         var cameraHtml = '<iframe width="560" height="315"src="' + urlReplace + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-
-        marker.bindPopup("<div>" + spotData[i]['spots_name'] + "</div>" + 
+        markers[i] = L.marker([spotData[i]['spots_latitude'], spotData[i]['spots_longitude']]).addTo(map).bindPopup("<div>" + spotData[i]['spots_name'] + "</div>" + 
         "<div>" + cameraHtml + "</div>", {maxWidth: 560, closeOnClick: true});
+    }
+
+    function onClickSpotGis(a) {
+        map.setView([spotData[a]['spots_latitude'], spotData[a]['spots_longitude']]);
+        markers[a].openPopup();
     }
 
 </script>
