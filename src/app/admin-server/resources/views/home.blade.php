@@ -57,9 +57,9 @@
     <div id="chart_card" class="row justify-content-center">
         <div class="col-12">
             <div class="card">
-                <div class="card-name card-header">自転車利用推移-全国</div> 
+                <div class="card-name card-header">自転車利用推移</div> 
                     <div class="my-3 mx-5" style="height: 300px;">
-                    <canvas id="ex_chart" style="max-height: 300px;"></canvas>
+                    <canvas id="line_chart" style="max-height: 300px;"></canvas>
                     <div class="row">
                     </div>
                 </div>
@@ -135,23 +135,23 @@
     const datasets =  [
             {
                 id: 0,
-                label: '平均利用者',
+                label: '全国（平均利用者）',
                 data: countMonthAll,
                 borderColor: 'rgba(100, 100, 255, 1)'
             },
             {
                 id: 0,
-                label: '合計放置車両',
+                label: '全国（合計放置車両）',
                 data: countViolationAll,
                 borderColor: 'rgba(255, 100, 100, 1)'
             }
         ];
-    var ctx = document.getElementById('ex_chart');
-    var ex_chart;
+    var ctx = document.getElementById('line_chart');
+    var line_chart;
 
     // グラフ
     function createChart() {
-        ex_chart = new Chart(ctx, {
+        line_chart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: labels,
@@ -196,9 +196,9 @@
             }
 
             datasets.push(newData);
-            ex_chart.update();
+            line_chart.update();
         } else {
-            ex_chart.update();
+            line_chart.update();
         }
 
     }
