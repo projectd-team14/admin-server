@@ -33,7 +33,13 @@ final class Firewall
     private function isAllowedIp(string $ip): bool
     {
         $adminIpList = explode(",", env('ADMIN_IP'));
-        
-        return IpUtils::checkIp($ip, $adminIpList);
+
+        $globalIp = file_get_contents('http://httpbin.org/ip');
+
+        $jsonIp = json_decode($globalIp, true);
+        $ipList = explode('.', $jsonIp['origin']);
+        $ipAll = $ipList[0] . '.' . $ipList[1] . '.' . $ipList[2];
+
+        return in_array($ipAll, $adminIpList);
     }
 }
