@@ -68,6 +68,8 @@ class HomeController extends Controller
             array_push($labels, $objDateTime);
         }
 
+        $labels = array_reverse($labels);
+
         $data = [
             'labels' => $labels,
             'month_list' => $countMonthAll,
