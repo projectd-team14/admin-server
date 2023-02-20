@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Bicycle extends Model
 {
     use HasFactory;
+
+    /**
+     * データベース接続
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_second';
 }
