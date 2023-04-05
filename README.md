@@ -3,7 +3,7 @@
 ※このプロジェクトは以下のプロジェクトの環境構築が必要です。  
  ・[bicycle_system(駐輪場管理システム)](https://github.com/projectd-team14/bicycle_system)  
 ## URL  
-ローカル：[http://localhost:8001](http://localhost:8001)
+ローカル：[http://localhost:8001](http://localhost:8001)  
 ステージング：ドキュメントに記載(別途VPNの設定が必要)  
 本番環境：ドキュメントに記載(別途VPNの設定が必要)  
 ## 環境構築  
