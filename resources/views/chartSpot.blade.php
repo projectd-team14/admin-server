@@ -152,8 +152,7 @@
         var xhr = new XMLHttpRequest();
 
         if (createSpots !== '0') {
-            console.log(createSpots)
-            xhr.open('get', "{{ env('LARAVEL_URL') }}/api/get_spot/" + createSpots, true);
+            xhr.open('get', "{{ env('LARAVEL_URL') }}/api/spot_data/" + createSpots, true);
             xhr.responseType = 'json';
         }
 
